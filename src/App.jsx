@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import CoinCard from "./components/coinCard";
-import LimitSelector from "./components/LimitSelector";
-import FilterInput from "./components/FilterInput";
-
+import HomePage from "./pages/home";
+import AboutPage from "./pages/about";
+import { Routes, Route } from "react-router";
+import Header from "./components/Header";
 const API_URL = import.meta.env.VITE_API_URL;
 
 function App() {
@@ -24,7 +24,7 @@ function App() {
         }
 
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         setCoins(data);
       } catch (error) {
         setError(error.message);
@@ -36,40 +36,26 @@ function App() {
     fetchCoins();
   }, [limit]);
 
-  const filteredCoins = coins.filter((coin) => {
-    return (
-      coin.name.toLowerCase().includes(filter.toLowerCase()) ||
-      coin.symbol.toLowerCase().includes(filter.toLowerCase())
-    );
-  });
-
   return (
     <>
-      <header>
-        <h1>🚀 Crypto Bro</h1>
-      </header>
-
-      <div className="controls">
-        <FilterInput filter={filter} onFilterChange={setFilter} />
-        <LimitSelector limit={limit} onLimitChange={setLimit} />
-      </div>
-
-      <main>
-        {loading && <p>Loading...</p>}
-        {error && <p className="error">{error}</p>}
-
-        {!loading && !error && (
-          <section className="cards-container">
-            {filteredCoins.length > 0 ? (
-              filteredCoins.map((coin, idx) => {
-                return <CoinCard coin={coin} key={coin.id} idx={idx} />;
-              })
-            ) : (
-              <p className="error">No matches for your search</p>
-            )}
-          </section>
-        )}
-      </main>
+      <Header />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <HomePage
+              coins={coins}
+              filter={filter}
+              setFilter={setFilter}
+              limit={limit}
+              setLimit={setLimit}
+              loading={loading}
+              error={error}
+            />
+          }
+        />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
     </>
   );
 }
