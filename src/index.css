@@ -63,6 +63,7 @@ body {
   gap: 20px;
 
   .coin-card {
+    position: relative;
     padding: 24px;
     background-color: #161c22;
     border-radius: 16px;
@@ -70,6 +71,16 @@ body {
 
     @media only screen and (max-width: 400px) {
       width: 100%;
+    }
+
+    .ranking {
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 8px;
+      background-color: #394b5e;
+      color: white;
+      border-top-right-radius: 16px;
     }
 
     .card-header {

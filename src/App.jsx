@@ -24,7 +24,7 @@ function App() {
         }
 
         const data = await response.json();
-        // console.log(data);
+        console.log(data);
         setCoins(data);
       } catch (error) {
         setError(error.message);
@@ -61,8 +61,8 @@ function App() {
         {!loading && !error && (
           <section className="cards-container">
             {filteredCoins.length > 0 ? (
-              filteredCoins.map((coin) => {
-                return <CoinCard coin={coin} key={coin.id} />;
+              filteredCoins.map((coin, idx) => {
+                return <CoinCard coin={coin} key={coin.id} idx={idx} />;
               })
             ) : (
               <p className="error">No matches for your search</p>

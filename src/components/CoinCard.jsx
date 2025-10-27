@@ -1,6 +1,9 @@
-const CoinCard = ({ coin }) => {
+const CoinCard = ({ coin, idx }) => {
+  const rank = idx + 1;
+
   return (
     <article className="coin-card">
+      <p className="ranking">{rank}</p>
       <div className="card-header">
         <img src={coin.image} alt={coin.name} />
         <div>
