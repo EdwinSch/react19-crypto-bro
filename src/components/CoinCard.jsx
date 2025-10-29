@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const CoinCard = ({ coin, idx }) => {
   const rank = idx + 1;
 
@@ -23,6 +25,10 @@ const CoinCard = ({ coin, idx }) => {
         </p>
         <p>Market Cap: {coin.market_cap.toLocaleString()}</p>
       </div>
+
+      <Link to={`/coin/${coin.id}`} className="details-btn">
+        See Details
+      </Link>
     </article>
   );
 };

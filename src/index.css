@@ -17,6 +17,11 @@ body {
   font-weight: 700;
 }
 
+.regular {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
 .inspect {
   border: solid red 1px;
 }
@@ -136,6 +141,23 @@ body {
         font-size: 14px;
       }
     }
+
+    .details-btn {
+      display: block;
+      margin-top: 20px;
+      margin-left: auto;
+      text-decoration: none;
+      background-color: #394b5e;
+      font-size: 14px;
+      color: white;
+      padding: 8px;
+      width: fit-content;
+      border-radius: 12px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 }
 
@@ -157,5 +179,47 @@ body {
       margin-top: 20px;
       font-size: 14px;
     }
+  }
+}
+
+.coin-details-container {
+  background-color: whitesmoke;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  color: #161c22;
+
+  .detail-heading {
+    font-size: 26px;
+  }
+
+  .coin-description {
+    font-size: 14px;
+  }
+
+  .details-info-container {
+    margin-top: 20px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+}
+
+.not-found-page {
+  text-align: center;
+
+  & a {
+    display: block;
+    margin-top: 20px;
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
   }
 }
