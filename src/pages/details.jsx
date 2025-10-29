@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router";
 import Spinner from "../components/Spinner";
 const API_URL = import.meta.env.VITE_COIN_API_URL;
+import CoinChart from "../components/CoinChart";
 
 const CoinDetailsPage = () => {
   const { id } = useParams();
@@ -70,7 +71,7 @@ const CoinDetailsPage = () => {
               </p>
 
               <a
-                style={{ display: "block", marginTop: 20 }}
+                style={{ display: "block", marginTop: 10, marginBottom: 30 }}
                 href={coin.links.homepage}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -78,6 +79,8 @@ const CoinDetailsPage = () => {
                 Go to website
               </a>
             </div>
+
+            <CoinChart coinId={coin.id} />
           </>
         )}
       </div>
